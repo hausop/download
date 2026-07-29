@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>保單大賽證明下載</title>
+
+    <meta
+        name="theme-color"
+        content="#2563eb">
+
+    <link
+        rel="manifest"
+        href="manifest.json">
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="css/mobile.css">
+
+    <link
+        rel="stylesheet"
+        href="css/dark.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header>
+
+        <h1>
+            保單大賽證明下載
+        </h1>
+
+        <p>
+            請輸入學校及隊名查詢 PDF
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <section class="search-card">
+
+            <input
+                id="school"
+                type="text"
+                placeholder="請輸入學校">
+
+            <input
+                id="team"
+                type="text"
+                placeholder="請輸入隊名">
+
+            <button id="searchBtn">
+                🔍 查詢
+            </button>
+
+        </section>
+
+
+        <section class="guide-card">
+
+            <button id="guideBtn">
+
+                📄 全國參賽學校證明下載
+
+            </button>
+
+        </section>
+
+
+        <section id="loading">
+
+        </section>
+
+        <section id="result">
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/download.js"></script>
+<script src="js/search.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
