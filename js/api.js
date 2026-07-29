@@ -1,4 +1,4 @@
-const API = "/.netlify/functions/api";
+const API = "https://certificate-api.taiyung133.workers.dev";
 
 async function searchFiles(school, team) {
 
