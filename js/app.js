@@ -37,8 +37,8 @@ result.forEach(file => {
 
             |
 
-            <a href="${file.download}">
-                ⬇️ 下載
+            <a href="${file.download}" target="_blank" rel="noopener noreferrer">
+    ⬇️ 下載
             </a>
         </div>
     `;
@@ -56,7 +56,7 @@ result.forEach(file => {
 
         try {
             const result = await getGuide();
-            window.open(result.url, "_blank");
+            window.open(result.url, "_blank", "noopener,noreferrer");
         } catch (err) {
             console.error(err);
         }
