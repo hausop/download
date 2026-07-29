@@ -1,1 +1,9 @@
-
+{
+  "name": "保單大賽證明下載",
+  "short_name": "證明下載",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": []
+}
