@@ -1,1 +1,55 @@
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#f5f5f5;
+}
 
+.page{
+    max-width:700px;
+    margin:auto;
+    padding:20px;
+}
+
+.search-card,
+.guide-card{
+
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+
+}
+
+input{
+
+    width:100%;
+    box-sizing:border-box;
+    margin-bottom:12px;
+    padding:12px;
+    font-size:16px;
+
+}
+
+button{
+
+    width:100%;
+    padding:14px;
+    font-size:16px;
+    cursor:pointer;
+
+}
+
+.file-card{
+
+    background:white;
+    padding:16px;
+    border-radius:10px;
+    margin-top:16px;
+
+}
+
+.file-card a{
+
+    text-decoration:none;
+
+}
