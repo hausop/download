@@ -13,7 +13,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const result = await searchFiles(school, team);
-            console.log(result);
+
+const resultDiv = document.getElementById("result");
+
+resultDiv.innerHTML = "";
+
+if (result.length === 0) {
+
+    resultDiv.innerHTML = "<p>查無符合資料</p>";
+    return;
+
+}
+
+result.forEach(file => {
+
+    resultDiv.innerHTML += `
+        <div class="file-card">
+            <h3>${file.name}</h3>
+
+            <a href="${file.preview}" target="_blank">
+                👁️ 預覽
+            </a>
+
+            |
+
+            <a href="${file.download}">
+                ⬇️ 下載
+            </a>
+        </div>
+    `;
+
+});
         } catch (err) {
             console.error(err);
         }
@@ -26,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const result = await getGuide();
-            console.log(result);
+            window.open(result.url, "_blank");
         } catch (err) {
             console.error(err);
         }
