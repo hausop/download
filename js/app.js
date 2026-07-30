@@ -79,28 +79,31 @@ document.addEventListener("DOMContentLoaded", () => {
                     resultDiv.innerHTML += `
                         <div class="file-card">
 
-    <h3>${file.name}</h3>
+    <div class="file-title">
 
-    <div class="file-actions">
+    <span class="file-icon">📄</span>
 
-        <a
-            href="${file.preview}"
-            target="_blank">
+    <div class="file-info">
 
-            預覽
+        <h3>${file.name}</h3>
 
-        </a>
-
-        <a
-            href="${file.download}"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            下載
-
-        </a>
+        <p>PDF 文件</p>
 
     </div>
+
+</div>
+
+<div class="file-actions">
+
+    <a href="${file.preview}" target="_blank">
+        預覽
+    </a>
+
+    <a href="${file.download}" target="_blank" rel="noopener noreferrer">
+        下載
+    </a>
+
+</div>
 
 </div>
                     `;
