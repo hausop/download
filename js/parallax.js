@@ -44,8 +44,8 @@ function startParallax() {
         const gamma = e.gamma || 0;
         const beta = e.beta || 0;
 
-        targetX = gamma * 0.8;
-        targetY = beta * 0.35;
+        targetX = gamma * 1.2;
+        targetY = beta * 0.6;
 
     });
 
@@ -53,8 +53,8 @@ function startParallax() {
 
 function animate() {
 
-    currentX += (targetX - currentX) * 0.08;
-    currentY += (targetY - currentY) * 0.08;
+    currentX += (targetX - currentX) * 0.05;
+    currentY += (targetY - currentY) * 0.05;
 
     document.body.style.setProperty(
         "--bg-transform",
