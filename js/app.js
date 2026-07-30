@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const loading = document.getElementById("loading");
     const searchBtn = document.getElementById("searchBtn");
     const btnText = searchBtn.querySelector(".btn-text");
-    const arrow = searchBtn.querySelector(".btn-arrow");
     const resultDiv = document.getElementById("result");
 
     document.querySelectorAll("input").forEach(input => {
@@ -102,28 +101,22 @@ btnText.textContent = "查詢中...";
 
         } finally {
 
-            searchBtn.classList.remove("loading");
-searchBtn.classList.add("success");
-
-searchBtn.textContent = "✔ 完成";
-
-setTimeout(()=>{
-
-    searchBtn.classList.remove("success");
-
     searchBtn.classList.remove("loading");
+    searchBtn.classList.add("success");
 
-btnText.textContent = "✔ 完成";
+    btnText.textContent = "✔ 完成";
 
-setTimeout(()=>{
+    setTimeout(() => {
 
-    btnText.textContent="🔍 查詢";
+        searchBtn.classList.remove("success");
 
-    searchBtn.disabled=false;
+        btnText.textContent = "🔍 查詢";
 
-},500);
+        searchBtn.disabled = false;
 
-        }
+    }, 500);
+
+}
 
     });
 
