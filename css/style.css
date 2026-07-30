@@ -75,11 +75,21 @@ input:focus{
 
 }
 
-button{
+.search-btn{
 
     width:100%;
 
-    padding:15px;
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0;
+
+    overflow:hidden;
 
     border:none;
 
@@ -87,29 +97,117 @@ button{
 
     background:#00a0e9;
 
-    color:white;
+    color:#fff;
+
+    cursor:pointer;
+
+    position:relative;
+
+}
+
+.btn-text{
+
+    flex:1;
+
+    text-align:center;
 
     font-size:17px;
 
     font-weight:700;
 
-    cursor:pointer;
-
-    transition:.2s;
+    z-index:2;
 
 }
 
-button:hover{
+.btn-arrow{
 
-    background:#0088c7;
+    width:64px;
 
-    transform:translateY(-2px);
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+    background:#0093d7;
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
-button:active{
+.btn-arrow::before{
 
-    transform:scale(.98);
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        90deg,
+
+        #0072bc,
+
+        #0062a5
+
+    );
+
+    transition:width .15s linear;
+
+}
+
+.btn-arrow{
+
+    color:white;
+
+    z-index:2;
+
+}
+
+.search-btn.loading{
+
+    pointer-events:none;
+
+}
+
+@keyframes pushArrow{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    50%{
+
+        transform:translateX(5px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+.search-btn.loading .btn-arrow{
+
+    animation:pushArrow .35s ease infinite;
 
 }
 
