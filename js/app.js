@@ -82,11 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             <h3>${file.name}</h3>
 
                             <a href="${file.preview}" target="_blank">
-                                👁️ 預覽
+                                預覽
                             </a>
 
                             <a href="${file.download}" target="_blank" rel="noopener noreferrer">
-                                ⬇️ 下載
+                                下載
                             </a>
 
                         </div>
