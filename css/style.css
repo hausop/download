@@ -193,6 +193,16 @@ button.success{
 
     color:#222;
 
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    min-height:54px;
+
 }
 
 .file-card a{
@@ -232,6 +242,28 @@ button.success{
 .file-card a:hover{
 
     opacity:.92;
+
+}
+
+.file-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:14px;
+
+}
+
+.file-actions a{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
 }
 
@@ -323,33 +355,25 @@ button.success{
 
     .file-card h3{
 
-        font-size:16px;
+    font-size:16px;
 
-    }
-
-    .file-card a{
-
-    display:inline-flex;
-
-    width:calc(50% - 6px);
-
-    height:48px;
-
-    justify-content:center;
-
-    align-items:center;
-
-    margin-top:10px;
-
-    text-align:center;
-
-    box-sizing:border-box;
+    min-height:48px;
 
 }
 
-.file-card a:first-of-type{
+   .file-actions{
 
-    margin-right:8px;
+    gap:8px;
+
+}
+
+.file-actions a{
+
+    margin:0;
+
+    padding:12px;
+
+    font-size:15px;
 
 }
 
