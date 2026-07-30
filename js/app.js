@@ -37,10 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resultDiv.innerHTML = "";
 
-        loading.style.display = "block";
-
         searchBtn.disabled = true;
-        searchBtn.textContent = "⌛ 查詢中...";
+        searchBtn.classList.add("loading");
+        searchBtn.textContent = "查詢中...";
 
         try {
 
@@ -99,10 +98,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } finally {
 
-            loading.style.display = "none";
+            searchBtn.classList.remove("loading");
+searchBtn.classList.add("success");
 
-            searchBtn.disabled = false;
-            searchBtn.textContent = "🔍 查詢";
+searchBtn.textContent = "✔ 完成";
+
+setTimeout(()=>{
+
+    searchBtn.classList.remove("success");
+
+    searchBtn.disabled=false;
+
+    searchBtn.textContent="🔍 查詢";
+
+},500);
 
         }
 
