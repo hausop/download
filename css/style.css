@@ -225,27 +225,30 @@ button:active{
 .loading-fill{
 
     height:100%;
-    width:0;
+    width:100%;
 
     background:
     repeating-linear-gradient(
         90deg,
-        #0000A8 0 12px,
-        #1084D0 12px 24px
+        #0000A8 0 10px,
+        #1084D0 10px 20px,
+        transparent 20px 22px
     );
 
-    animation:win95Loading 1.4s linear infinite;
+    background-size:22px 100%;
+
+    animation:win95Loading .8s linear infinite;
 
 }
 
 @keyframes win95Loading{
 
     from{
-        width:0;
+        background-position:-22px 0;
     }
 
     to{
-        width:100%;
+        background-position:22px 0;
     }
 
 }
