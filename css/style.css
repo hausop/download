@@ -5,10 +5,35 @@
 body{
     margin:0;
     font-family:"Noto Sans TC",sans-serif;
+    color:#333;
+    overflow-x:hidden;
+    position:relative;
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    left:-10%;
+    top:-10%;
+
+    width:120%;
+    height:120%;
+
     background:
         linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-        url("../images/bg.jpg") center center/cover no-repeat fixed;
-    color:#333;
+        url("../images/bg.jpg") center center / cover no-repeat;
+
+    z-index:-1;
+
+    will-change:transform;
+
+    transform:translate3d(0,0,0);
+
+    transition:transform .12s linear;
+
 }
 
 .page{
