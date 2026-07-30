@@ -329,14 +329,28 @@ button.success{
 
     .file-card a{
 
-        display:block;
+    display:inline-flex;
 
-        width:100%;
+    width:calc(50% - 6px);
 
-        margin:10px 0 0;
+    height:48px;
 
-        text-align:center;
+    justify-content:center;
 
-    }
+    align-items:center;
+
+    margin-top:10px;
+
+    text-align:center;
+
+    box-sizing:border-box;
+
+}
+
+.file-card a:first-of-type{
+
+    margin-right:8px;
+
+}
 
 }
