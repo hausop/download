@@ -2,6 +2,8 @@ console.log("app.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const loading = document.getElementById("loading");
+
     console.log("DOM loaded");
 
     document.getElementById("searchBtn").addEventListener("click", async () => {
@@ -12,7 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const team = document.getElementById("team").value.trim();
 
         try {
-            const result = await searchFiles(school, team);
+            searchBtn.disabled = true;
+searchBtn.textContent = "查詢中...";
+
+loading.style.display = "block";
+
+const result = await searchFiles(school, team);
+
+loading.style.display = "none";
+
+searchBtn.disabled = false;
+searchBtn.textContent = "🔍 查詢";
 
 const resultDiv = document.getElementById("result");
 
@@ -45,8 +57,15 @@ result.forEach(file => {
 
 });
         } catch (err) {
-            console.error(err);
-        }
+
+    loading.style.display = "none";
+
+    searchBtn.disabled = false;
+    searchBtn.textContent = "🔍 查詢";
+
+    console.error(err);
+
+}
 
     });
 
