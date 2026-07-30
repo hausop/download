@@ -3,6 +3,19 @@ console.log("app.js loaded");
 document.addEventListener("DOMContentLoaded", () => {
 
     const loading = document.getElementById("loading");
+const searchBtn = document.getElementById("searchBtn");
+
+    document.querySelectorAll("input").forEach(input => {
+
+    input.addEventListener("keydown", e => {
+
+        if (e.key === "Enter") {
+            searchBtn.click();
+        }
+
+    });
+
+});
 
     console.log("DOM loaded");
 
@@ -56,6 +69,15 @@ result.forEach(file => {
     `;
 
 });
+            
+            document.getElementById("team").addEventListener("keydown", (e) => {
+
+    if (e.key === "Enter") {
+        searchBtn.click();
+    }
+
+});
+      
         } catch (err) {
 
     loading.style.display = "none";
