@@ -5,92 +5,106 @@
 body{
     margin:0;
     font-family:"Noto Sans TC",sans-serif;
-
     background:
-        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
         url("../images/bg.jpg") center center / cover no-repeat fixed;
-
     color:#333;
 }
 
 .page{
     max-width:720px;
-    margin:80px auto;
+    margin:60px auto;
     padding:20px;
 }
 
-.search-card{
-
-    background:rgba(255,255,255,.92);
-    padding:24px;
-    border-radius:16px;
+header{
+    text-align:center;
     margin-bottom:24px;
-    box-shadow:0 12px 40px rgba(0,0,0,.25);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(10px);
-
 }
 
 h1{
-
-    text-align:center;
-    color:white;
-    font-size:42px;
-    font-weight:800;
-    margin-bottom:10px;
-    text-shadow:0 4px 16px rgba(0,0,0,.45);
-
+    margin:0;
+    color:#fff;
+    font-size:36px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-shadow:0 3px 12px rgba(0,0,0,.45);
 }
 
 .subtitle{
+    margin-top:10px;
+    color:rgba(255,255,255,.92);
+    font-size:16px;
+    text-shadow:0 2px 8px rgba(0,0,0,.45);
+}
 
-    text-align:center;
-    color:white;
-    font-size:18px;
-    margin-bottom:28px;
-    text-shadow:0 2px 8px rgba(0,0,0,.5);
+.search-card{
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.25);
 
 }
 
 input{
-
     width:100%;
-    padding:14px;
+    padding:15px;
     margin-bottom:14px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    font-size:16px;
-    transition:.2s;
 
+    border:1px solid #d7dce5;
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:.2s;
 }
 
 input:focus{
 
     outline:none;
-    border-color:#4a90e2;
-    box-shadow:0 0 0 3px rgba(74,144,226,.15);
+
+    border-color:#2d7ff9;
+
+    box-shadow:0 0 0 4px rgba(45,127,249,.15);
 
 }
 
 button{
 
     width:100%;
-    padding:14px;
+
+    padding:15px;
+
     border:none;
-    border-radius:10px;
-    background:#0056D6;
+
+    border-radius:12px;
+
+    background:#2d7ff9;
+
     color:white;
-    font-size:16px;
-    font-weight:bold;
+
+    font-size:17px;
+
+    font-weight:700;
+
     cursor:pointer;
+
     transition:.2s;
-    box-shadow:0 10px 24px rgba(0,86,214,.35);
+
+    box-shadow:0 10px 25px rgba(45,127,249,.35);
 
 }
 
 button:hover{
 
-    background:#0045B5;
+    background:#1669e8;
+
     transform:translateY(-2px);
 
 }
@@ -101,99 +115,29 @@ button:active{
 
 }
 
-#result{
+.guide-link{
 
-    margin-top:24px;
+    margin-top:18px;
 
-}
-
-.file-card{
-
-    background:white;
-    border-radius:14px;
-    padding:18px;
-    margin-bottom:16px;
-    box-shadow:0 4px 14px rgba(0,0,0,.08);
+    text-align:center;
 
 }
 
-.file-card h3{
+.guide-link a{
 
-    margin:0 0 16px;
-    font-size:18px;
-    line-height:1.5;
+    color:#4f6fa8;
 
-}
+    font-size:15px;
 
-.file-card a{
-
-    display:inline-block;
     text-decoration:none;
-    padding:10px 16px;
-    border-radius:8px;
-    font-weight:bold;
-    margin-right:10px;
 
 }
 
-.file-card a:first-of-type{
+.guide-link a:hover{
 
-    background:#eef5ff;
     color:#2d7ff9;
 
-}
-
-.file-card a:last-of-type{
-
-    background:#2d7ff9;
-    color:white;
-
-}
-
-.file-card a:hover{
-
-    opacity:.9;
-
-}
-
-@media (max-width:768px){
-
-    .page{
-
-        margin:0;
-        padding:16px;
-
-    }
-
-    .search-card,
-    .guide-card{
-
-        padding:18px;
-        border-radius:14px;
-
-    }
-
-    .file-card h3{
-
-        font-size:16px;
-
-    }
-
-    .file-card a{
-
-        display:block;
-        width:100%;
-        text-align:center;
-        margin:10px 0 0;
-
-    }
-
-    button{
-
-        font-size:17px;
-        padding:16px;
-
-    }
+    text-decoration:underline;
 
 }
 
@@ -201,15 +145,22 @@ button:active{
 
     display:none;
 
-    margin:20px 0;
+    margin-top:22px;
+
+    padding-top:18px;
+
+    border-top:1px solid rgba(0,0,0,.08);
 
 }
 
 .loading-text{
 
     font-family:Tahoma,Arial,sans-serif;
+
     font-size:13px;
-    color:#000;
+
+    color:#444;
+
     margin-bottom:8px;
 
 }
@@ -217,6 +168,7 @@ button:active{
 .loading-box{
 
     height:22px;
+
     background:#fff;
 
     border-top:2px solid #808080;
@@ -233,6 +185,7 @@ button:active{
 .loading-fill{
 
     height:100%;
+
     width:100%;
 
     background:
@@ -252,11 +205,185 @@ button:active{
 @keyframes win95Loading{
 
     from{
+
         background-position:-22px 0;
+
     }
 
     to{
+
         background-position:22px 0;
+
+    }
+
+}
+
+#result{
+
+    margin-top:24px;
+
+}
+
+.file-card{
+
+    background:rgba(255,255,255,.96);
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-bottom:16px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+    animation:fadeUp .25s ease;
+
+}
+
+.file-card h3{
+
+    margin:0 0 14px;
+
+    font-size:18px;
+
+    line-height:1.5;
+
+    color:#222;
+
+}
+
+.file-card a{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.2s;
+
+    margin-right:10px;
+
+}
+
+.file-card a:first-of-type{
+
+    background:#eef5ff;
+
+    color:#2d7ff9;
+
+}
+
+.file-card a:last-of-type{
+
+    background:#2d7ff9;
+
+    color:#fff;
+
+}
+
+.file-card a:hover{
+
+    transform:translateY(-1px);
+
+    opacity:.95;
+
+}
+
+.no-result{
+
+    background:rgba(255,255,255,.95);
+
+    border-radius:14px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#666;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .page{
+
+        margin:0;
+
+        padding:18px;
+
+    }
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+    .subtitle{
+
+        font-size:15px;
+
+    }
+
+    .search-card{
+
+        padding:20px;
+
+        border-radius:16px;
+
+    }
+
+    .file-card h3{
+
+        font-size:16px;
+
+    }
+
+    .file-card a{
+
+        display:block;
+
+        width:100%;
+
+        margin-top:10px;
+
+        margin-right:0;
+
+        text-align:center;
+
+    }
+
+    button{
+
+        font-size:17px;
+
     }
 
 }
