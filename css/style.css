@@ -402,11 +402,11 @@ button.success{
 
     body::before{
 
-        width:130%;
-        height:130%;
+        width:135%;
+        height:135%;
 
-        left:-15%;
-        top:-15%;
+        left:-17.5%;
+        top:-17.5%;
 
     }
     
