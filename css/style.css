@@ -19,8 +19,7 @@ body{
     padding:20px;
 }
 
-.search-card,
-.guide-card{
+.search-card{
 
     background:rgba(255,255,255,.92);
     padding:24px;
@@ -99,18 +98,6 @@ button:hover{
 button:active{
 
     transform:scale(.98);
-
-}
-
-#guideBtn{
-
-    background:#2ea44f;
-
-}
-
-#guideBtn:hover{
-
-    background:#22863a;
 
 }
 
