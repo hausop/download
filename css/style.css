@@ -179,11 +179,7 @@ button.success{
 
     box-shadow:0 8px 20px rgba(0,0,0,.12);
 
-    opacity:0;
-
-    transform:translateY(16px);
-
-    animation:cardIn .35s ease forwards;
+    animation:fadeUp .25s ease;
 
 }
 
@@ -293,20 +289,18 @@ button.success{
 
 /* ===== 動畫 ===== */
 
-@keyframes cardIn{
+@keyframes fadeUp{
 
     from{
 
         opacity:0;
-
-        transform:translateY(18px);
+        transform:translateY(10px);
 
     }
 
     to{
 
         opacity:1;
-
         transform:translateY(0);
 
     }
@@ -380,82 +374,6 @@ button.success{
     padding:12px;
 
     font-size:15px;
-
-}
-
-    .file-title{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:14px;
-
-    margin-bottom:18px;
-
-}
-
-.file-icon{
-
-    font-size:32px;
-
-    line-height:1;
-
-    flex-shrink:0;
-
-}
-
-.file-info{
-
-    flex:1;
-
-}
-
-.file-info h3{
-
-    margin:0;
-
-}
-
-.file-info p{
-
-    margin:6px 0 0;
-
-    color:#8c8c8c;
-
-    font-size:14px;
-
-}
-
-.file-actions{
-
-    display:flex;
-
-    border-top:1px solid #ececec;
-
-    margin-top:12px;
-
-}
-
-.file-actions a{
-
-    flex:1;
-
-    background:none !important;
-
-    color:#00a0e9 !important;
-
-    padding:14px 0;
-
-    text-align:center;
-
-    font-weight:700;
-
-}
-
-.file-actions a:first-child{
-
-    border-right:1px solid #ececec;
 
 }
 
