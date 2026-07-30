@@ -79,17 +79,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     resultDiv.innerHTML += `
                         <div class="file-card">
 
-                            <h3>${file.name}</h3>
+    <h3>${file.name}</h3>
 
-                            <a href="${file.preview}" target="_blank">
-                                預覽
-                            </a>
+    <div class="file-actions">
 
-                            <a href="${file.download}" target="_blank" rel="noopener noreferrer">
-                                下載
-                            </a>
+        <a
+            href="${file.preview}"
+            target="_blank">
 
-                        </div>
+            預覽
+
+        </a>
+
+        <a
+            href="${file.download}"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            下載
+
+        </a>
+
+    </div>
+
+</div>
                     `;
 
                 });
