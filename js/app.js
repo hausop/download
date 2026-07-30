@@ -74,10 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } else {
 
-                result.forEach(file => {
+                result.forEach((file,index) => {
 
                     resultDiv.innerHTML += `
-                        <div class="file-card">
+                        <div
+    class="file-card"
+    style="animation-delay:${index*0.08}s">
 
     <div class="file-title">
 
