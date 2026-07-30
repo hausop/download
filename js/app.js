@@ -4,9 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("DOM loaded");
 
-    const loading = document.getElementById("loading");
     const searchBtn = document.getElementById("searchBtn");
-    const btnText = searchBtn.querySelector(".btn-text");
+    const btnText = searchBtn.querySelector("span");
     const resultDiv = document.getElementById("result");
 
     document.querySelectorAll("input").forEach(input => {
@@ -23,15 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     searchBtn.addEventListener("click", async () => {
 
-        console.log("Search Click");
-
         const school = document.getElementById("school").value.trim();
         const team = document.getElementById("team").value.trim();
 
         if (!school || !team) {
 
             alert("請輸入學校及隊名");
-
             return;
 
         }
@@ -39,16 +35,36 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerHTML = "";
 
         searchBtn.disabled = true;
+        searchBtn.classList.add("loading");
+        btnText.textContent = "查詢中...";
 
-searchBtn.classList.add("loading");
+        let progress = 0;
 
-btnText.textContent = "查詢中...";
+        searchBtn.style.setProperty("--progress", "0%");
+
+        const timer = setInterval(() => {
+
+            if (progress < 20) progress += 4;
+            else if (progress < 40) progress += 3;
+            else if (progress < 60) progress += 2;
+            else if (progress < 80) progress += 1.5;
+            else if (progress < 90) progress += .5;
+
+            if (progress > 90) progress = 90;
+
+            searchBtn.style.setProperty("--progress", progress + "%");
+
+        }, 80);
 
         try {
 
             const result = await searchFiles(school, team);
 
-                    if (result.length === 0) {
+            clearInterval(timer);
+
+            searchBtn.style.setProperty("--progress", "100%");
+
+            if (result.length === 0) {
 
                 resultDiv.innerHTML = `
                     <div class="no-result">
@@ -56,40 +72,33 @@ btnText.textContent = "查詢中...";
                     </div>
                 `;
 
-                return;
+            } else {
+
+                result.forEach(file => {
+
+                    resultDiv.innerHTML += `
+                        <div class="file-card">
+
+                            <h3>${file.name}</h3>
+
+                            <a href="${file.preview}" target="_blank">
+                                👁️ 預覽
+                            </a>
+
+                            <a href="${file.download}" target="_blank" rel="noopener noreferrer">
+                                ⬇️ 下載
+                            </a>
+
+                        </div>
+                    `;
+
+                });
 
             }
 
-            result.forEach(file => {
-
-                resultDiv.innerHTML += `
-                    <div class="file-card">
-
-                        <h3>${file.name}</h3>
-
-                        <a
-                            href="${file.preview}"
-                            target="_blank">
-
-                            👁️ 預覽
-
-                        </a>
-
-                        <a
-                            href="${file.download}"
-                            target="_blank"
-                            rel="noopener noreferrer">
-
-                            ⬇️ 下載
-
-                        </a>
-
-                    </div>
-                `;
-
-            });
-
         } catch (err) {
+
+            clearInterval(timer);
 
             console.error(err);
 
@@ -99,40 +108,35 @@ btnText.textContent = "查詢中...";
                 </div>
             `;
 
+            searchBtn.style.setProperty("--progress", "100%");
+
         } finally {
 
-    searchBtn.classList.remove("loading");
-    searchBtn.classList.add("success");
+            searchBtn.classList.remove("loading");
+            searchBtn.classList.add("success");
 
-    btnText.textContent = "✔ 完成";
+            btnText.textContent = "✔ 完成";
 
-    setTimeout(() => {
+            setTimeout(() => {
 
-        searchBtn.classList.remove("success");
+                searchBtn.classList.remove("success");
+                searchBtn.style.setProperty("--progress", "0%");
+                btnText.textContent = "🔍 查詢";
+                searchBtn.disabled = false;
 
-        btnText.textContent = "🔍 查詢";
+            }, 600);
 
-        searchBtn.disabled = false;
-
-    }, 500);
-
-}
+        }
 
     });
 
     document.getElementById("guideBtn").addEventListener("click", async () => {
 
-        console.log("Guide Click");
-
         try {
 
             const result = await getGuide();
 
-            window.open(
-                result.url,
-                "_blank",
-                "noopener,noreferrer"
-            );
+            window.open(result.url, "_blank", "noopener,noreferrer");
 
         } catch (err) {
 
