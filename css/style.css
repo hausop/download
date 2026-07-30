@@ -85,7 +85,7 @@ button{
 
     border-radius:12px;
 
-    background:#2d7ff9;
+    background:#00a0e9;
 
     color:white;
 
@@ -97,13 +97,11 @@ button{
 
     transition:.2s;
 
-    box-shadow:0 10px 25px rgba(45,127,249,.35);
-
 }
 
 button:hover{
 
-    background:#1669e8;
+    background:#0088c7;
 
     transform:translateY(-2px);
 
