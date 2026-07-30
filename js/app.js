@@ -74,38 +74,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } else {
 
-                result.forEach((file,index) => {
+                result.forEach(file => {
 
                     resultDiv.innerHTML += `
-                        <div
-    class="file-card"
-    style="animation-delay:${index*0.08}s">
+                        <div class="file-card">
 
-    <div class="file-title">
+    <h3>${file.name}</h3>
 
-    <span class="file-icon">📄</span>
+    <div class="file-actions">
 
-    <div class="file-info">
+        <a
+            href="${file.preview}"
+            target="_blank">
 
-        <h3>${file.name}</h3>
+            預覽
 
-        <p>PDF 文件</p>
+        </a>
+
+        <a
+            href="${file.download}"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            下載
+
+        </a>
 
     </div>
-
-</div>
-
-<div class="file-actions">
-
-    <a href="${file.preview}" target="_blank">
-        預覽
-    </a>
-
-    <a href="${file.download}" target="_blank" rel="noopener noreferrer">
-        下載
-    </a>
-
-</div>
 
 </div>
                     `;
