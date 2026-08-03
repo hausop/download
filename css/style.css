@@ -30,7 +30,9 @@ body::before{
 
     will-change:transform;
 
-    transform:var(--bg-transform);
+    transform:translate3d(0,0,0);
+
+    transition:transform .12s linear;
 
 }
 
@@ -400,14 +402,4 @@ button.success{
 
 }
 
-    body::before{
-
-        width:135%;
-        height:135%;
-
-        left:-17.5%;
-        top:-17.5%;
-
-    }
-    
 }
