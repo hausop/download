@@ -1,6 +1,6 @@
-const CACHE_NAME = "certificate-v1";
+const CACHE_NAME = "certificate-cache";
 
-const STATIC_ASSETS = [
+const STATIC_FILES = [
 
     "/",
     "/index.html",
@@ -26,18 +26,31 @@ const STATIC_ASSETS = [
 
 ];
 
+
+
+/* =========================
+   Install
+========================= */
+
 self.addEventListener("install", event => {
 
     event.waitUntil(
 
         caches.open(CACHE_NAME)
-        .then(cache => cache.addAll(STATIC_ASSETS))
+
+        .then(cache => cache.addAll(STATIC_FILES))
 
     );
 
     self.skipWaiting();
 
 });
+
+
+
+/* =========================
+   Activate
+========================= */
 
 self.addEventListener("activate", event => {
 
@@ -47,15 +60,11 @@ self.addEventListener("activate", event => {
 
             Promise.all(
 
-                keys.map(key => {
+                keys
 
-                    if (key !== CACHE_NAME) {
+                .filter(key => key !== CACHE_NAME)
 
-                        return caches.delete(key);
-
-                    }
-
-                })
+                .map(key => caches.delete(key))
 
             )
 
@@ -67,34 +76,192 @@ self.addEventListener("activate", event => {
 
 });
 
+
+
+/* =========================
+   Fetch
+========================= */
+
 self.addEventListener("fetch", event => {
+
+    if (event.request.method !== "GET") return;
 
     const url = new URL(event.request.url);
 
-    // 不快取 Google Apps Script API
-    if (url.hostname.includes("script.google.com")) {
+
+
+    /* ---------- Google Apps Script ---------- */
+
+    if (
+
+        url.hostname.includes("script.google.com") ||
+
+        url.hostname.includes("script.googleusercontent.com")
+
+    ){
 
         return;
 
     }
 
-    // 不快取 PDF
-    if (url.pathname.toLowerCase().endsWith(".pdf")) {
+
+
+    /* ---------- PDF ---------- */
+
+    if (
+
+        url.pathname.toLowerCase().endsWith(".pdf")
+
+    ){
 
         return;
 
     }
 
-    event.respondWith(
 
-        caches.match(event.request)
 
-        .then(cacheResponse => {
+    /* ---------- HTML ---------- */
 
-            return cacheResponse || fetch(event.request);
+    if (
+
+        event.request.mode === "navigate"
+
+    ){
+
+        event.respondWith(networkFirst(event.request));
+
+        return;
+
+    }
+
+
+
+    /* ---------- CSS / JS ---------- */
+
+    if (
+
+        url.pathname.endsWith(".css") ||
+
+        url.pathname.endsWith(".js")
+
+    ){
+
+        event.respondWith(staleWhileRevalidate(event.request));
+
+        return;
+
+    }
+
+
+
+    /* ---------- Manifest ---------- */
+
+    if (
+
+        url.pathname.endsWith(".json")
+
+    ){
+
+        event.respondWith(networkFirst(event.request));
+
+        return;
+
+    }
+
+
+
+    /* ---------- Images ---------- */
+
+    if (
+
+        event.request.destination === "image"
+
+    ){
+
+        event.respondWith(cacheFirst(event.request));
+
+        return;
+
+    }
+
+
+
+    /* ---------- Default ---------- */
+
+    event.respondWith(cacheFirst(event.request));
+
+});
+
+
+
+/* =========================
+   Strategies
+========================= */
+
+
+
+async function networkFirst(request){
+
+    const cache = await caches.open(CACHE_NAME);
+
+    try{
+
+        const response = await fetch(request);
+
+        cache.put(request,response.clone());
+
+        return response;
+
+    }catch{
+
+        return await cache.match(request);
+
+    }
+
+}
+
+
+
+async function cacheFirst(request){
+
+    const cache = await caches.open(CACHE_NAME);
+
+    const cached = await cache.match(request);
+
+    if(cached){
+
+        return cached;
+
+    }
+
+    const response = await fetch(request);
+
+    cache.put(request,response.clone());
+
+    return response;
+
+}
+
+
+
+async function staleWhileRevalidate(request){
+
+    const cache = await caches.open(CACHE_NAME);
+
+    const cached = await cache.match(request);
+
+    const networkFetch = fetch(request)
+
+        .then(response=>{
+
+            cache.put(request,response.clone());
+
+            return response;
 
         })
 
-    );
+        .catch(()=>null);
 
-});
+    return cached || networkFetch;
+
+}
