@@ -1,9 +1,32 @@
 {
-  "name": "保單大賽證明下載",
-  "short_name": "證明下載",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
-  "icons": []
+    "name": "保單大賽證明",
+    "short_name": "證明下載",
+    "description": "提供保單大賽參賽證明與獎狀下載服務。",
+
+    "id": "/",
+    "start_url": "/",
+    "scope": "/",
+
+    "display": "standalone",
+    "orientation": "portrait",
+
+    "lang": "zh-TW",
+
+    "background_color": "#ffffff",
+    "theme_color": "#00a0e9",
+
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
 }
