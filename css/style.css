@@ -162,28 +162,6 @@ button.success{
 
 }
 
-.guide-link{
-
-    margin-top:18px;
-    text-align:center;
-
-}
-
-.guide-link a{
-
-    color:#5b6f82;
-    text-decoration:none;
-    font-size:15px;
-
-}
-
-.guide-link a:hover{
-
-    color:#00a0e9;
-    text-decoration:underline;
-
-}
-
 /* ===== 底部說明文字 ===== */
 
 .notice{
@@ -250,6 +228,22 @@ button.success{
     border-color:#cfd6df;
 
     color:#0086c4;
+
+}
+
+.guide-section{
+
+    margin:18px 0;
+
+}
+
+.section-divider{
+
+    border:0;
+
+    border-top:1px solid #d9dee5;
+
+    margin:20px 0;
 
 }
 
