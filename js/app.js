@@ -128,22 +128,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    document.getElementById("guideBtn").addEventListener("click", async () => {
-
-        try {
-
-            const result = await getGuide();
-
-            window.open(result.url, "_blank", "noopener,noreferrer");
-
-        } catch (err) {
-
-            console.error(err);
-
-            alert("下載失敗，請稍後再試");
-
-        }
-
-    });
-
 });
