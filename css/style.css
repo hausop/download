@@ -208,103 +208,48 @@ button.success{
 
 }
 
-.file-card{
+.file-link{
 
-    background:rgba(255,255,255,.96);
+    display:block;
 
-    border-radius:14px;
+    width:100%;
 
-    padding:18px;
+    padding:15px 18px;
 
-    margin-bottom:16px;
+    margin-bottom:10px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    background:#f8f9fb;
+
+    border:1px solid #d9dee5;
+
+    border-radius:4px;
+
+    color:#00a0e9;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    text-decoration:none;
+
+    word-break:break-word;
+
+    transition:
+        background .2s,
+        border-color .2s,
+        color .2s;
 
     animation:fadeUp .25s ease;
 
 }
 
-.file-card h3{
+.file-link:hover{
 
-    margin:0 0 14px;
+    background:#edf1f5;
 
-    font-size:18px;
+    border-color:#cfd6df;
 
-    line-height:1.5;
-
-    color:#222;
-
-    display:-webkit-box;
-    -webkit-box-orient:vertical;
-    -webkit-line-clamp:2;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-
-    min-height:54px;
-
-}
-
-.file-card a{
-
-    display:inline-block;
-
-    padding:10px 18px;
-
-    margin-right:10px;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    transition:.2s;
-
-}
-
-.file-card a:first-of-type{
-
-    background:#eef8ff;
-
-    color:#00a0e9;
-
-}
-
-.file-card a:last-of-type{
-
-    background:#00a0e9;
-
-    color:#fff;
-
-}
-
-.file-card a:hover{
-
-    opacity:.92;
-
-}
-
-.file-actions{
-
-    display:flex;
-
-    gap:10px;
-
-    margin-top:14px;
-
-}
-
-.file-actions a{
-
-    flex:1;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
+    color:#0086c4;
 
 }
 
@@ -394,11 +339,11 @@ button.success{
 
     }
 
-    .file-card h3{
+    .file-link{
 
-    font-size:16px;
+    font-size:15px;
 
-    min-height:48px;
+    padding:14px 15px;
 
 }
 
