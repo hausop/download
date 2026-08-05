@@ -76,36 +76,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 result.forEach(file => {
 
-                    resultDiv.innerHTML += `
-                        <div class="file-card">
-
-    <h3>${file.name}</h3>
-
-    <div class="file-actions">
+    resultDiv.innerHTML += `
 
         <a
+            class="file-link"
             href="${file.preview}"
-            target="_blank">
-
-            預覽
-
-        </a>
-
-        <a
-            href="${file.download}"
             target="_blank"
             rel="noopener noreferrer">
 
-            下載
+            ${file.name}
 
         </a>
 
-    </div>
+    `;
 
-</div>
-                    `;
-
-                });
+});
 
             }
 
