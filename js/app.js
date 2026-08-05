@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             searchBtn.style.setProperty("--progress", "100%");
 
-        } finally {
+                } finally {
 
             searchBtn.classList.remove("loading");
             searchBtn.classList.add("success");
@@ -127,5 +127,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
+
+    // ===== 全國參賽學校證明 =====
+    const guideBtn = document.getElementById("guideBtn");
+
+    if (guideBtn) {
+
+        guideBtn.addEventListener("click", async () => {
+
+            try {
+
+                const guide = await getGuide();
+
+                window.open(
+                    guide.preview,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            } catch (err) {
+
+                console.error(err);
+
+                alert("開啟失敗，請稍後再試");
+
+            }
+
+        });
+
+    }
 
 });
